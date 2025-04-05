@@ -5,6 +5,7 @@ import { Portfolio } from './sections/Portfolio';
 import { Contact } from './sections/Contact';
 import { Footer } from './components/Footer';
 import { SocialLinks } from './components/SocialLinks';
+import { TechLogoScroller } from './components/TechLogoScroller'; // Import the new component
 
 export default function App() {
   return (
@@ -16,7 +17,12 @@ export default function App() {
           <Hero />
         </section>
 
-        <section id="services" className="snap-start py-20">
+        {/* Add TechLogoScroller Section Here */}
+        <section id="tech-stack" className="snap-start pt-16 pb-10">
+          <TechLogoScroller />
+        </section>
+
+        <section id="services" className="snap-start py-16">
           <Services />
         </section>
 
@@ -30,7 +36,7 @@ export default function App() {
         <SocialLinks />
       </main>
 
-      <Footer id="footer" /> {/* Add id="footer" here */}
+      <Footer id="footer" />
     </div>
   );
 }

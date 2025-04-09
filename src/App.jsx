@@ -1,42 +1,39 @@
-import { Navbar } from './components/Navbar';
-import { Hero } from './sections/Hero';
-import { Services } from './sections/Services';
-import { Portfolio } from './sections/Portfolio';
-import { Contact } from './sections/Contact';
-import { Footer } from './components/Footer';
-import { SocialLinks } from './components/SocialLinks';
-import { TechLogoScroller } from './components/TechLogoScroller'; // Import the new component
+import { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { Home } from './components/Home.jsx';
+import { Blog } from './sections/Blog';
+import { SynapseSpinner } from './components/SynapseSpinner';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2500);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (loading) {
+    return <SynapseSpinner />;
+  }
+  
   return (
     <div className="min-h-screen bg-gray-900 text-white">
-      <Navbar />
-      
-      <main>
-        <section id="home" className="snap-start">
-          <Hero />
-        </section>
-
-        {/* Add TechLogoScroller Section Here */}
-        <section id="tech-stack" className="snap-start pt-16 pb-10">
-          <TechLogoScroller />
-        </section>
-
-        <section id="services" className="snap-start py-16">
-          <Services />
-        </section>
-
-        <section id="portfolio" className="snap-start py-20 bg-gray-800/20">
-          <Portfolio />
-        </section>
-
-        <section id="contact" className="snap-start py-20">
-          <Contact />
-        </section>
-        <SocialLinks />
-      </main>
-
-      <Footer id="footer" />
+      <Router>
+        <ErrorBoundary>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/blog" element={
+              <ErrorBoundary>
+                <Blog />
+              </ErrorBoundary>
+            } />
+          </Routes>
+        </ErrorBoundary>
+      </Router>
     </div>
   );
 }

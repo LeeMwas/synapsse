@@ -140,7 +140,7 @@ export function SynapseSpinner() {
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
         >
-          SynapsSolutions
+          synapsse solutions
         </motion.h1>
         
         <motion.div 

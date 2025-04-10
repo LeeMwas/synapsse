@@ -67,6 +67,14 @@ export function Hero() {
   const { scrollY } = useScroll();
   const yBackground = useTransform(scrollY, [0, 300], [0, 50]);
   
+  // Function to scroll to services section
+  const scrollToServices = () => {
+    const servicesSection = document.getElementById('services');
+    if (servicesSection) {
+      servicesSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+  
   return (
     <motion.section
       ref={ref}
@@ -157,8 +165,9 @@ export function Hero() {
               Transform your business with custom digital experiences powered by industry-leading technologies.
             </motion.p>
 
-            {/* CTA Button */}
+            {/* CTA Button - Only adding the onClick handler */}
             <motion.button
+              onClick={scrollToServices}
               whileHover={{ scale: 1.05, boxShadow: '0 10px 20px rgba(99, 102, 241, 0.5)' }}
               whileTap={{ scale: 0.95 }}
               initial={{ opacity: 0, y: 50 }}

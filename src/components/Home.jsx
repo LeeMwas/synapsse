@@ -9,6 +9,8 @@ import { Footer } from './Footer';
 import { SocialLinks } from './SocialLinks';
 import { TechLogoScroller } from './TechLogoScroller';
 import { SynapseSpinner } from './SynapseSpinner';
+import { QuoteHero } from '../sections/QuoteForm';
+import { Testimonials } from '../sections/Testimonials';
 
 
 export function Home() {  
@@ -34,6 +36,10 @@ export function Home() {
           <Portfolio />
         </section>
 
+        <section id="quote-form" className="snap-start py-20 bg-gray-800/20">
+          <QuoteHero />
+        </section>
+
         {/* New Blog section */}
         {/* <section id="blog" className="snap-start py-20 bg-gray-950">
           <Blog />
@@ -44,6 +50,10 @@ export function Home() {
         </section>
         <SocialLinks />
       </main>
+
+      <section id="quote-form" className="snap-start py-20 bg-gray-800/20">
+          <Testimonials />
+        </section>
 
       <Footer id="footer" />
     </div>

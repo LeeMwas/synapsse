@@ -149,7 +149,7 @@ export function Navbar() {
           className="flex items-center space-x-2 text-white hover:text-blue-100 transition"
         >
           <FiCode className="text-2xl" />
-          <span className="text-2xl font-semibold tracking-wide">Synnapse</span>
+          <span className="text-2xl font-semibold tracking-wide">synapsse solutions</span>
         </a>
 
         {/* Desktop Nav */}
